@@ -1,9 +1,9 @@
 # rizi-site
 
-GitHub Pages for the iOS app **日子 / Rizi**.
+GitHub Pages for the iOS app **日子 / Days**.
 
 - Marketing: `/`
 - Support: `/support.html`
 - Privacy: `/privacy.html`
 
-Design: cream `#F8F5F0`, ink text, coral accent `#FF7A59`.
+English via `?lang=en` or the EN toggle. Japanese display name in the app is 日々.
