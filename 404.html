@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"
+  data-title-zh="日子: 没有这一页"
+  data-title-en="Days: this page is missing">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex"/>
+<meta name="theme-color" content="#E8EBF1"/>
+<title>日子: 没有这一页</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search).get("lang");
+    var s = localStorage.getItem("rizi-lang");
+    var n = (navigator.language || "").toLowerCase();
+    var en = q === "en" || (!q && (s === "en" || (!s && n.indexOf("en") === 0)));
+    if (q === "zh-Hans") en = false;
+    if (en) document.documentElement.lang = "en";
+    var title = document.documentElement.getAttribute(en ? "data-title-en" : "data-title-zh");
+    if (title) document.title = title;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">
+  <span data-lang="zh">跳到正文</span>
+  <span data-lang="en">Skip to content</span>
+</a>
+<header class="topbar">
+  <a class="wordmark" href="index.html">日子 <span class="wordmark-en">Days</span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <span data-lang="zh">菜单</span>
+    <span data-lang="en">Menu</span>
+  </button>
+  <nav class="nav-links" id="site-nav" aria-label="Primary">
+    <a href="index.html"><span data-lang="zh">官网</span><span data-lang="en">Home</span></a>
+    <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
+    <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang-switch="zh-Hans" aria-pressed="true">中</button>
+      <button type="button" data-lang-switch="en" aria-pressed="false">EN</button>
+    </div>
+  </nav>
+</header>
+<main id="main" class="wrap hero">
+  <div>
+    <h1 data-lang="zh">没有这一页</h1>
+    <h1 data-lang="en">This page is missing</h1>
+    <p class="lede" data-lang="zh">链接可能写错了。回到官网，或去技术支持和隐私政策。</p>
+    <p class="lede" data-lang="en">The link may be wrong. Go back to the site, or open support and privacy.</p>
+    <div class="cta-row">
+      <a class="btn" href="index.html">
+        <span data-lang="zh">回到官网</span>
+        <span data-lang="en">Back to home</span>
+      </a>
+      <a class="btn btn-ghost" href="support.html">
+        <span data-lang="zh">技术支持</span>
+        <span data-lang="en">Support</span>
+      </a>
+    </div>
+  </div>
+</main>
+<footer class="site-footer wrap">
+  <p>© 2026 日子 / Days</p>
+</footer>
+<script src="site.js" defer></script>
+</body>
+</html>

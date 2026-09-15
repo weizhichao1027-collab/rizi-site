@@ -2,8 +2,8 @@
 
 GitHub Pages for the iOS app **日子 / Days**.
 
-- Marketing: `/`
+- Official: `/`
 - Support: `/support.html`
 - Privacy: `/privacy.html`
 
-English via `?lang=en` or the EN toggle. Japanese display name in the app is 日々.
+English via `?lang=en` or the EN toggle. Scene colors on the marketing page match the app themes.

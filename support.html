@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html lang="zh-Hans"
-  data-title-zh="日子 · 技术支持"
-  data-title-en="Days · Support"
-  data-desc-zh="日子 App 技术支持与常见问题。"
-  data-desc-en="Support and FAQ for the Days iOS app.">
+  data-title-zh="日子: 技术支持"
+  data-title-en="Days: Support"
+  data-desc-zh="日子 App 技术支持与常见问题。添加日子、天数口径、小组件、主题与购买。"
+  data-desc-en="Support and answers for the Days iOS app: adding a day, counts, widgets, themes, and purchases.">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="日子 App 技术支持与常见问题。"/>
-<title>日子 · 技术支持</title>
+<meta name="description" content="日子 App 技术支持与常见问题。添加日子、天数口径、小组件、主题与购买。"/>
+<meta name="theme-color" content="#E8EBF1"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="日子: 技术支持"/>
+<meta property="og:description" content="日子 App 技术支持与常见问题。"/>
+<meta property="og:url" content="https://weizhichao1027-collab.github.io/rizi-site/support.html"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:site_name" content="日子 / Days"/>
+<meta name="twitter:card" content="summary"/>
+<title>日子: 技术支持</title>
 <link rel="canonical" href="https://weizhichao1027-collab.github.io/rizi-site/support.html"/>
+<link rel="alternate" hreflang="zh-Hans" href="https://weizhichao1027-collab.github.io/rizi-site/support.html"/>
+<link rel="alternate" hreflang="en" href="https://weizhichao1027-collab.github.io/rizi-site/support.html?lang=en"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
+<script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search).get("lang");
+    var s = localStorage.getItem("rizi-lang");
+    var n = (navigator.language || "").toLowerCase();
+    var en = q === "en" || (!q && (s === "en" || (!s && n.indexOf("en") === 0)));
+    if (q === "zh-Hans") en = false;
+    if (en) document.documentElement.lang = "en";
+    var title = document.documentElement.getAttribute(en ? "data-title-en" : "data-title-zh");
+    if (title) document.title = title;
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
+<a class="skip" href="#main">
+  <span data-lang="zh">跳到正文</span>
+  <span data-lang="en">Skip to content</span>
+</a>
 <header class="topbar">
-  <a class="wordmark" href="index.html">日子 <span class="wordmark-en">/ Days</span></a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="index.html"><span data-lang="zh">营销页</span><span data-lang="en">Home</span></a>
-    <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
+  <a class="wordmark" href="index.html">日子 <span class="wordmark-en">Days</span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <span data-lang="zh">菜单</span>
+    <span data-lang="en">Menu</span>
+  </button>
+  <nav class="nav-links" id="site-nav" aria-label="Primary">
+    <a href="index.html"><span data-lang="zh">官网</span><span data-lang="en">Home</span></a>
+    <a href="support.html" aria-current="page"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
     <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang-switch="zh-Hans" aria-pressed="true">中</button>
@@ -26,71 +62,103 @@
   </nav>
 </header>
 
-<main class="doc">
-  <h1 data-lang="zh">日子 · 技术支持</h1>
-  <h1 data-lang="en">Days · Support</h1>
-  <p class="lead" data-lang="zh">使用或购买遇到问题，先看下面常见问答；仍未解决可发邮件。</p>
-  <p class="lead" data-lang="en">If something goes wrong, try the FAQ below. Still stuck? Email us.</p>
+<main id="main" class="wrap">
+  <header class="doc-hero">
+    <h1 data-lang="zh">技术支持</h1>
+    <h1 data-lang="en">Support</h1>
+    <p class="lede" data-lang="zh">使用或购买遇到问题，先看下面的问答。仍未解决，把现象写信发给我们。</p>
+    <p class="lede" data-lang="en">If something goes wrong, start with the answers below. If you are still stuck, email us with what you saw.</p>
+  </header>
 
-  <div class="faq">
-    <details>
-      <summary><span data-lang="zh">怎么添加日子？</span><span data-lang="en">How do I add a day?</span></summary>
-      <p data-lang="zh">打开 App → 点「添加日子」→ 填写名称并选择日期 → 保存。只需这两步。</p>
-      <p data-lang="en">Open the app → tap Add a day → enter a name and pick a date → Save. That’s it.</p>
-    </details>
-    <details>
-      <summary><span data-lang="zh">「就是今天 / 还剩 N 天 / 已过 N 天」怎么算？</span><span data-lang="en">How are Today / N days left / N days ago counted?</span></summary>
-      <p data-lang="zh">按自然日计算，列表、详情和桌面小组件用同一套口径，保持一致。</p>
-      <p data-lang="en">By calendar day. The list, detail screen, and Home Screen widgets use the same count.</p>
-    </details>
-    <details>
-      <summary><span data-lang="zh">小组件天数怎么和 App 里对不上？</span><span data-lang="en">Why doesn’t the widget match the app?</span></summary>
-      <p data-lang="zh">在系统桌面长按 → 编辑小组件 / 添加小组件 → 选择「日子」或 Days。添加后应与详情一致；若刚改过日期，稍等小组件刷新或重进桌面再看。</p>
-      <p data-lang="en">On the Home Screen, touch and hold → Edit / Add Widget → choose Days. It should match the detail count. After changing a date, wait for a refresh or leave and return to the Home Screen.</p>
-    </details>
-    <details>
-      <summary><span data-lang="zh">主题只能预览不能用？</span><span data-lang="en">I can preview a theme but not use it?</span></summary>
-      <p data-lang="zh">免费主题点「使用」即可。带锁的主题需解锁 Pro；可先预览，点「使用」会进入购买。</p>
-      <p data-lang="en">Free themes can be used immediately. Locked themes need Pro. Preview first; Use opens purchase.</p>
-    </details>
-    <details>
-      <summary><span data-lang="zh">购买没成功 / 提示失败？</span><span data-lang="en">Purchase failed or was cancelled?</span></summary>
-      <p data-lang="zh">确认网络正常，用你的 Apple ID 完成系统购买框。若点了取消，会提示「已取消」；真正失败可再试一次。仍不行：App Store 退出后重登，或稍后重试。</p>
-      <p data-lang="en">Check the network and finish the Apple ID sheet. Cancel shows Cancelled; a real failure can be retried. If it still fails, sign out and back into the App Store, or try later.</p>
-    </details>
-    <details>
-      <summary><span data-lang="zh">换机 / 重装后主题没了？</span><span data-lang="en">Themes disappeared after a new phone or reinstall?</span></summary>
-      <p data-lang="zh">打开日子 → 设置或 Pro 入口 → 点「恢复购买」。需用购买时的同一个 Apple ID。</p>
-      <p data-lang="en">Open Days → Settings or the Pro sheet → Restore Purchases. Use the same Apple ID you bought with.</p>
-    </details>
-    <details>
-      <summary><span data-lang="zh">会不会要订阅？</span><span data-lang="en">Is this a subscription?</span></summary>
-      <p data-lang="zh">不会。Pro 为一次买断（非消耗型），不是订阅。</p>
-      <p data-lang="en">No. Pro is a one-time unlock (non-consumable), not a subscription.</p>
-    </details>
-    <details>
-      <summary><span data-lang="zh">收不收集我的数据？要日历权限吗？</span><span data-lang="en">Do you collect my data? Do I need calendar access?</span></summary>
-      <p data-lang="zh">不收集个人数据。日子与主题保存在本机；不需要相机或相册权限。详见隐私政策。</p>
-      <p data-lang="en">We don’t collect personal data. Days and themes stay on device. Camera and photo library access are not required. See the privacy policy.</p>
-    </details>
-  </div>
+  <div class="doc-layout">
+    <nav class="toc" aria-label="Questions">
+      <a href="#add"><span data-lang="zh">怎么添加</span><span data-lang="en">Add a day</span></a>
+      <a href="#count"><span data-lang="zh">天数怎么算</span><span data-lang="en">How counts work</span></a>
+      <a href="#widget"><span data-lang="zh">小组件对不上</span><span data-lang="en">Widget mismatch</span></a>
+      <a href="#theme"><span data-lang="zh">主题不能用</span><span data-lang="en">Locked themes</span></a>
+      <a href="#purchase"><span data-lang="zh">购买失败</span><span data-lang="en">Purchase failed</span></a>
+      <a href="#restore"><span data-lang="zh">换机重装</span><span data-lang="en">New phone</span></a>
+      <a href="#subscribe"><span data-lang="zh">是不是订阅</span><span data-lang="en">Subscription</span></a>
+      <a href="#privacy"><span data-lang="zh">收不收集数据</span><span data-lang="en">Data and access</span></a>
+      <a href="#contact"><span data-lang="zh">联系</span><span data-lang="en">Contact</span></a>
+    </nav>
 
-  <h2 data-lang="zh">联系</h2>
-  <h2 data-lang="en">Contact</h2>
-  <div class="contact-box">
-    <p style="margin:0 0 8px"><a href="mailto:weizhichao6688@gmail.com">weizhichao6688@gmail.com</a></p>
-    <p style="margin:0;color:var(--ink-soft);font-size:0.95rem" data-lang="zh">请附带：iPhone 型号、iOS 版本、问题现象与截图（如有）。</p>
-    <p style="margin:0;color:var(--ink-soft);font-size:0.95rem" data-lang="en">Please include: iPhone model, iOS version, what happened, and a screenshot if you have one.</p>
+    <div>
+      <article class="article" id="add">
+        <h2 data-lang="zh">怎么添加日子？</h2>
+        <h2 data-lang="en">How do I add a day?</h2>
+        <p data-lang="zh">打开 App，点「添加日子」，填写名称并选择日期，然后保存。只需这两步。空列表时首页有入口，之后也可以用右上角加号。</p>
+        <p data-lang="en">Open the app, tap Add a day, enter a name, pick a date, then save. That is the whole flow. The empty list has a button; later you can use the plus control.</p>
+      </article>
+
+      <article class="article" id="count">
+        <h2 data-lang="zh">「就是今天 / 还剩 N 天 / 已过 N 天」怎么算？</h2>
+        <h2 data-lang="en">How are Today, N days left, and N days ago counted?</h2>
+        <p data-lang="zh">按自然日计算，不按小时。列表、详情、主屏幕和锁屏小组件走同一套口径，保持一致。</p>
+        <p data-lang="en">By calendar day, not by the hour. The list, detail screen, Home Screen widgets, and Lock Screen widgets share the same count.</p>
+      </article>
+
+      <article class="article" id="widget">
+        <h2 data-lang="zh">小组件天数怎么和 App 里对不上？</h2>
+        <h2 data-lang="en">Why doesn’t the widget match the app?</h2>
+        <p data-lang="zh">在主屏幕或锁屏长按空白处，点加号或「自定」，搜索「日子」或 Days，选一个尺寸后添加。可以让它自动跟最近的日子，也可以长按小组件后指定某一条。添加后应与详情一致。若刚改过日期，稍等刷新，或离开桌面再回来看。</p>
+        <p data-lang="en">Touch and hold the Home Screen or Lock Screen, tap plus or Customize, search for Days, then add a size. It can follow the nearest day, or you can pin one after a long press. It should match the detail count. After you change a date, wait for a refresh, or leave and return to the Home Screen.</p>
+      </article>
+
+      <article class="article" id="theme">
+        <h2 data-lang="zh">主题只能预览不能用？</h2>
+        <h2 data-lang="en">I can preview a theme but not use it?</h2>
+        <p data-lang="zh">免费主题（考试冲刺、生日派对）点「使用」即可。带锁的主题需要解锁 Pro。点卡片只预览，不会改掉当前主题；点「使用」才会写入。若尚未购买，点「使用」会进入购买。</p>
+        <p data-lang="en">Free themes (Exam Sprint, Birthday Party) can be used immediately. Locked themes need Pro. Tapping a card only previews it. Tap Use to apply it. If Pro is not unlocked, Use opens purchase.</p>
+      </article>
+
+      <article class="article" id="purchase">
+        <h2 data-lang="zh">购买没成功，或提示失败？</h2>
+        <h2 data-lang="en">The purchase failed or was cancelled?</h2>
+        <p data-lang="zh">确认网络正常，用你的 Apple ID 完成系统购买框。若点了取消，会提示「已取消」。真正失败可以再试一次。仍不行时：在 App Store 退出后重新登录，或稍后再试。</p>
+        <p data-lang="en">Check the network and finish the Apple ID sheet. Cancel shows Cancelled. A real failure can be retried. If it still fails, sign out and back into the App Store, or try later.</p>
+      </article>
+
+      <article class="article" id="restore">
+        <h2 data-lang="zh">换机或重装后主题没了？</h2>
+        <h2 data-lang="en">Themes disappeared after a new phone or reinstall?</h2>
+        <p data-lang="zh">打开日子，进入设置或 Pro 入口，点「恢复购买」。需要使用购买时的同一个 Apple ID。日子本身只保存在这台设备上，换机不会自动带过来；请自己重新添加日子。Pro 解锁可以恢复。</p>
+        <p data-lang="en">Open Days, go to Settings or the Pro sheet, then tap Restore Purchases. Use the same Apple ID you bought with. Days themselves stay on that device and will not migrate automatically; add them again. The Pro unlock can be restored.</p>
+      </article>
+
+      <article class="article" id="subscribe">
+        <h2 data-lang="zh">会不会要订阅？</h2>
+        <h2 data-lang="en">Is this a subscription?</h2>
+        <p data-lang="zh">不会。Pro 是一次买断（非消耗型），不是订阅。中文商店价为 ¥6；其他地区显示当地价格。</p>
+        <p data-lang="en">No. Pro is a one-time unlock (non-consumable), not a subscription. The price is local in the App Store.</p>
+      </article>
+
+      <article class="article" id="privacy">
+        <h2 data-lang="zh">收不收集我的数据？要日历权限吗？</h2>
+        <h2 data-lang="en">Do you collect my data? Do I need calendar access?</h2>
+        <p data-lang="zh">不收集个人数据。日子与主题保存在本机，不需要相机、相册或系统日历权限。详见<a href="privacy.html">隐私政策</a>。</p>
+        <p data-lang="en">We do not collect personal data. Days and themes stay on device. Camera, photo library, and system calendar access are not required. See the <a href="privacy.html">privacy policy</a>.</p>
+      </article>
+
+      <section class="contact-band" id="contact">
+        <h2 data-lang="zh">还是不行</h2>
+        <h2 data-lang="en">Still stuck</h2>
+        <p data-lang="zh">写信时请附带：iPhone 型号、iOS 版本、问题现象，以及截图（如有）。</p>
+        <p data-lang="en">Please include your iPhone model, iOS version, what happened, and a screenshot if you have one.</p>
+        <p><a class="mail" href="mailto:weizhichao6688@gmail.com">weizhichao6688@gmail.com</a></p>
+      </section>
+    </div>
   </div>
 </main>
 
-<footer class="site-footer">
-  <nav>
-    <a href="index.html"><span data-lang="zh">营销页</span><span data-lang="en">Home</span></a>
+<footer class="site-footer wrap">
+  <nav aria-label="Footer">
+    <a href="index.html"><span data-lang="zh">官网</span><span data-lang="en">Home</span></a>
     <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
+    <a href="mailto:weizhichao6688@gmail.com">weizhichao6688@gmail.com</a>
   </nav>
   <p>© 2026 日子 / Days</p>
 </footer>
-<script src="site.js"></script>
+<script src="site.js" defer></script>
 </body>
 </html>

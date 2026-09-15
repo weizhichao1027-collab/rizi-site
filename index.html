@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-Hans"
-  data-title-zh="日子 — 重要日子，一眼看到还剩多久"
-  data-title-en="Days — see how many days are left"
-  data-desc-zh="日子：两步添加，大号天数，场景主题可预览。基础免费，Pro ¥6 买断。不收集个人数据。"
-  data-desc-en="Days: add in two steps, big day counts, preview themes. Free core tools; Pro is a one-time unlock. We do not collect personal data.">
+  data-title-zh="日子: 还剩几天"
+  data-title-en="Days: how many are left"
+  data-desc-zh="日子帮你为考试、恋爱、旅行、生日做倒数。两步添加，大号天数，主题可先预览。基础免费，Pro ¥6 买断。不收集个人数据。"
+  data-desc-en="Days helps you count down to exams, anniversaries, trips, and birthdays. Add in two steps, preview themes, and keep widgets in sync. Core tools are free. Pro is a one-time unlock. We do not collect personal data.">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="日子：两步添加，大号天数，场景主题可预览。基础免费，Pro ¥6 买断。不收集个人数据。"/>
-<title>日子 — 重要日子，一眼看到还剩多久</title>
+<meta name="description" content="日子帮你为考试、恋爱、旅行、生日做倒数。两步添加，大号天数，主题可先预览。基础免费，Pro ¥6 买断。不收集个人数据。"/>
+<meta name="theme-color" content="#E8EBF1"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="日子: 还剩几天"/>
+<meta property="og:description" content="日子帮你为考试、恋爱、旅行、生日做倒数。两步添加，大号天数，主题可先预览。"/>
+<meta property="og:url" content="https://weizhichao1027-collab.github.io/rizi-site/"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:site_name" content="日子 / Days"/>
+<meta name="twitter:card" content="summary"/>
+<title>日子: 还剩几天</title>
 <link rel="canonical" href="https://weizhichao1027-collab.github.io/rizi-site/"/>
 <link rel="alternate" hreflang="zh-Hans" href="https://weizhichao1027-collab.github.io/rizi-site/"/>
 <link rel="alternate" hreflang="en" href="https://weizhichao1027-collab.github.io/rizi-site/?lang=en"/>
 <link rel="alternate" hreflang="x-default" href="https://weizhichao1027-collab.github.io/rizi-site/"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
+<script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search).get("lang");
+    var s = localStorage.getItem("rizi-lang");
+    var n = (navigator.language || "").toLowerCase();
+    var en = q === "en" || (!q && (s === "en" || (!s && n.indexOf("en") === 0)));
+    if (q === "zh-Hans") en = false;
+    if (en) document.documentElement.lang = "en";
+    var title = document.documentElement.getAttribute(en ? "data-title-en" : "data-title-zh");
+    if (title) document.title = title;
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,16 +49,25 @@
   "operatingSystem": "iOS 17",
   "applicationCategory": "LifestyleApplication",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
-  "author": { "@type": "Person", "name": "zhichao wei" }
+  "author": { "@type": "Person", "name": "zhichao wei" },
+  "url": "https://weizhichao1027-collab.github.io/rizi-site/"
 }
 </script>
 </head>
 <body>
+<a class="skip" href="#main">
+  <span data-lang="zh">跳到正文</span>
+  <span data-lang="en">Skip to content</span>
+</a>
 <header class="topbar">
-  <a class="wordmark" href="index.html">日子 <span class="wordmark-en">/ Days</span></a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="#features"><span data-lang="zh">功能</span><span data-lang="en">Features</span></a>
-    <a href="#preview"><span data-lang="zh">预览</span><span data-lang="en">Preview</span></a>
+  <a class="wordmark" href="index.html">日子 <span class="wordmark-en">Days</span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <span data-lang="zh">菜单</span>
+    <span data-lang="en">Menu</span>
+  </button>
+  <nav class="nav-links" id="site-nav" aria-label="Primary">
+    <a href="#counts"><span data-lang="zh">天数</span><span data-lang="en">Counts</span></a>
+    <a href="#themes"><span data-lang="zh">主题</span><span data-lang="en">Themes</span></a>
     <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
     <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
     <div class="lang-switch" role="group" aria-label="Language">
@@ -42,96 +77,203 @@
   </nav>
 </header>
 
-<main>
-  <section class="hero">
-    <p class="eyebrow" translate="no">日子 / Days · 日々</p>
-    <h1 data-lang="zh">重要日子，一眼看到还剩多久</h1>
-    <h1 data-lang="en">See how many days are left</h1>
-    <p class="subtitle" data-lang="zh">两步添加，大号天数，场景主题可先预览。基础免费，Pro ¥6 买断，不是订阅。</p>
-    <p class="subtitle" data-lang="en">Add in two steps, preview themes, keep widgets in sync. Core tools are free. Pro is a one-time unlock, not a subscription.</p>
-    <a class="btn" href="#" aria-label="App Store">
-      <span data-lang="zh">在 App Store 下载</span>
-      <span data-lang="en">Download on the App Store</span>
-    </a>
+<main id="main">
+  <section class="wrap hero">
+    <div>
+      <h1 data-lang="zh">还剩几天</h1>
+      <h1 data-lang="en">Days left</h1>
+      <p class="lede" data-lang="zh">给考试、恋爱、旅行、生日做倒数。写下名称，选一个日期。列表、详情和小组件用同一套天数。</p>
+      <p class="lede" data-lang="en">Count down to exams, anniversaries, trips, and birthdays. Name plus date is enough. The list, detail view, and widgets share one count.</p>
+      <div class="cta-row">
+        <a class="btn" data-store href="#get">
+          <span data-lang="zh">即将上架 App Store</span>
+          <span data-lang="en">Coming to the App Store</span>
+        </a>
+        <a class="btn btn-ghost" href="#themes">
+          <span data-lang="zh">先看主题</span>
+          <span data-lang="en">Browse themes</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-stage">
+      <figure class="leaf hero-leaf" id="hero-leaf" data-theme="exam-sprint" data-texture="ruled" aria-label="期末考试, 还剩 12 天">
+        <div class="leaf-perf" aria-hidden="true"></div>
+        <p class="leaf-count" data-leaf-count>还剩 12 天</p>
+        <p class="leaf-name" data-leaf-name>期末考试</p>
+        <p class="leaf-date" data-leaf-date>2026.09.27</p>
+        <span class="leaf-badge" data-leaf-badge hidden>Pro</span>
+      </figure>
+    </div>
   </section>
 
-  <section class="features" id="features">
-    <article class="card">
-      <span class="accent" aria-hidden="true"></span>
-      <h3 data-lang="zh">两步添加</h3>
-      <h3 data-lang="en">Two steps</h3>
-      <p data-lang="zh">名称 + 日期就够，不用学</p>
-      <p data-lang="en">Name + date is enough. Nothing to learn.</p>
-    </article>
-    <article class="card">
-      <span class="accent" aria-hidden="true"></span>
-      <h3 data-lang="zh">大号天数</h3>
-      <h3 data-lang="en">Big day counts</h3>
-      <p data-lang="zh">就是今天 / 还剩 N 天 / 已过 N 天，列表与详情一眼清</p>
-      <p data-lang="en">Today / N days left / N days ago. Same count in list and detail.</p>
-    </article>
-    <article class="card">
-      <span class="accent" aria-hidden="true"></span>
-      <h3 data-lang="zh">场景主题</h3>
-      <h3 data-lang="en">Scene themes</h3>
-      <p data-lang="zh">考试、恋爱、旅行等可先预览再使用</p>
-      <p data-lang="en">Exam, love, travel, and more — preview before you use them.</p>
-    </article>
-    <article class="card">
-      <span class="accent" aria-hidden="true"></span>
-      <h3 data-lang="zh">¥6 买断</h3>
-      <h3 data-lang="en">One-time Pro</h3>
-      <p data-lang="zh">Pro 一次解锁全部主题，无订阅</p>
-      <p data-lang="en">Unlock all themes once. Not a subscription. Price is local in the App Store.</p>
-    </article>
+  <section class="wrap section" id="counts">
+    <h2 data-lang="zh">三种说法，同一口径</h2>
+    <h2 data-lang="en">Three phrases, one calendar day</h2>
+    <div class="counts">
+      <div class="count-lead">
+        <span class="phrase" data-count-offset="0">就是今天</span>
+        <p data-lang="zh">按自然日计算，不按小时。今天、还没到、已经过去，各只有一句。</p>
+        <p data-lang="en">Counted by calendar day, not by the hour. Today, still ahead, and already past each get one phrase.</p>
+      </div>
+      <ul class="count-list">
+        <li>
+          <strong data-count-offset="12">还剩 12 天</strong>
+          <p data-lang="zh">日期还在后面。列表副标题、详情大字、主屏幕和锁屏小组件都写这一句。</p>
+          <p data-lang="en">The date is still ahead. The list, the large detail type, and Home Screen or Lock Screen widgets all use this line.</p>
+        </li>
+        <li>
+          <strong data-count-offset="-30">已过 30 天</strong>
+          <p data-lang="zh">日期已经过去。不会另算一套，也不会和小组件各写各的。</p>
+          <p data-lang="en">The date has passed. There is no second formula, and the widget will not drift from the app.</p>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <section class="preview" id="preview">
-    <h2 data-lang="zh">看看长什么样</h2>
-    <h2 data-lang="en">What it looks like</h2>
-    <div class="preview-grid">
-      <div class="preview-card">
-        <div class="preview-mock">
-          <span class="preview-label" data-lang="zh">列表</span>
-          <span class="preview-label" data-lang="en">List</span>
-          <p class="preview-days" data-lang="zh">还剩 12 天</p>
-          <p class="preview-days" data-lang="en">12 days left</p>
-          <p class="preview-name" data-lang="zh">期末考试</p>
-          <p class="preview-name" data-lang="en">Final exam</p>
-        </div>
+  <section class="wrap section" id="themes">
+    <h2 data-lang="zh">场景主题，可先预览</h2>
+    <h2 data-lang="en">Scene themes you can preview</h2>
+    <div class="theme-rail" role="list">
+      <div role="listitem">
+      <button type="button" class="theme-hit" data-scene="exam-sprint" aria-current="true">
+        <article class="leaf" data-scene-leaf="exam-sprint" data-theme="exam-sprint" data-texture="ruled">
+          <div class="leaf-perf" aria-hidden="true"></div>
+          <p class="leaf-count" data-leaf-count>还剩 12 天</p>
+          <p class="leaf-name" data-leaf-name>期末考试</p>
+          <p class="leaf-date" data-leaf-date></p>
+          <span class="leaf-badge" data-leaf-badge hidden>Pro</span>
+        </article>
+      </button>
       </div>
-      <div class="preview-card">
-        <div class="preview-mock">
-          <span class="preview-label" data-lang="zh">详情</span>
-          <span class="preview-label" data-lang="en">Detail</span>
-          <p class="preview-days big" data-lang="zh">就是今天</p>
-          <p class="preview-days big" data-lang="en">Today</p>
-          <p class="preview-name" data-lang="zh">恋爱纪念日</p>
-          <p class="preview-name" data-lang="en">Anniversary</p>
-        </div>
+      <div role="listitem">
+      <button type="button" class="theme-hit" data-scene="birthday-party" aria-current="false">
+        <article class="leaf" data-scene-leaf="birthday-party" data-theme="birthday-party" data-texture="dots">
+          <div class="leaf-perf" aria-hidden="true"></div>
+          <p class="leaf-count" data-leaf-count>还剩 6 天</p>
+          <p class="leaf-name" data-leaf-name>生日派对</p>
+          <p class="leaf-date" data-leaf-date></p>
+          <span class="leaf-badge" data-leaf-badge hidden>Pro</span>
+        </article>
+      </button>
       </div>
-      <div class="preview-card">
-        <div class="preview-mock">
-          <span class="preview-label" data-lang="zh">主题</span>
-          <span class="preview-label" data-lang="en">Theme</span>
-          <p class="preview-days" data-lang="zh">已过 30 天</p>
-          <p class="preview-days" data-lang="en">30 days ago</p>
-          <p class="preview-name" data-lang="zh">旅行出发</p>
-          <p class="preview-name" data-lang="en">Trip departure</p>
-        </div>
+      <div role="listitem">
+      <button type="button" class="theme-hit" data-scene="love-memorial" aria-current="false">
+        <article class="leaf" data-scene-leaf="love-memorial" data-theme="love-memorial" data-texture="gradient">
+          <div class="leaf-perf" aria-hidden="true"></div>
+          <p class="leaf-count" data-leaf-count>就是今天</p>
+          <p class="leaf-name" data-leaf-name>恋爱纪念日</p>
+          <p class="leaf-date" data-leaf-date></p>
+          <span class="leaf-badge" data-leaf-badge>Pro</span>
+        </article>
+      </button>
       </div>
+      <div role="listitem">
+      <button type="button" class="theme-hit" data-scene="travel-depart" aria-current="false">
+        <article class="leaf" data-scene-leaf="travel-depart" data-theme="travel-depart" data-texture="grid">
+          <div class="leaf-perf" aria-hidden="true"></div>
+          <p class="leaf-count" data-leaf-count>已过 30 天</p>
+          <p class="leaf-name" data-leaf-name>旅行出发</p>
+          <p class="leaf-date" data-leaf-date></p>
+          <span class="leaf-badge" data-leaf-badge>Pro</span>
+        </article>
+      </button>
+      </div>
+      <div role="listitem">
+      <button type="button" class="theme-hit" data-scene="job-countdown" aria-current="false">
+        <article class="leaf" data-scene-leaf="job-countdown" data-theme="job-countdown" data-texture="grid">
+          <div class="leaf-perf" aria-hidden="true"></div>
+          <p class="leaf-count" data-leaf-count>还剩 3 天</p>
+          <p class="leaf-name" data-leaf-name>入职倒计时</p>
+          <p class="leaf-date" data-leaf-date></p>
+          <span class="leaf-badge" data-leaf-badge>Pro</span>
+        </article>
+      </button>
+      </div>
+      <div role="listitem">
+      <button type="button" class="theme-hit" data-scene="graduation" aria-current="false">
+        <article class="leaf" data-scene-leaf="graduation" data-theme="graduation" data-texture="ruled">
+          <div class="leaf-perf" aria-hidden="true"></div>
+          <p class="leaf-count" data-leaf-count>已过 90 天</p>
+          <p class="leaf-name" data-leaf-name>毕业季</p>
+          <p class="leaf-date" data-leaf-date></p>
+          <span class="leaf-badge" data-leaf-badge>Pro</span>
+        </article>
+      </button>
+      </div>
+    </div>
+    <p class="theme-note" data-lang="zh">点卡片只预览，点「使用」才写入。考试冲刺、生日派对免费；恋爱、旅行、入职、毕业需解锁 Pro。</p>
+    <p class="theme-note" data-lang="en">Tap a card to preview. Tap Use to apply it. Exam Sprint and Birthday Party are free. Love, travel, work, and graduation need Pro.</p>
+  </section>
+
+  <section class="wrap section" id="add">
+    <h2 data-lang="zh">两步就够</h2>
+    <h2 data-lang="en">Two fields</h2>
+    <div class="split">
+      <div>
+        <p class="lede" data-lang="zh">不用学用法。打开日子，写下这件事叫什么，再选那天。保存之后，天数会自己走。</p>
+        <p class="lede" data-lang="en">Nothing to learn. Open Days, name the occasion, pick the date, and save. The count moves on its own.</p>
+      </div>
+      <div class="paper-form">
+        <dl>
+          <div>
+            <dt data-lang="zh">名称</dt>
+            <dt data-lang="en">Name</dt>
+            <dd data-lang="zh">期末考试</dd>
+            <dd data-lang="en">Final exam</dd>
+          </div>
+          <div>
+            <dt data-lang="zh">日期</dt>
+            <dt data-lang="en">Date</dt>
+            <dd data-date-offset="12">2026.09.27</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="ink-band" id="local">
+    <div class="wrap">
+      <div>
+        <h2 data-lang="zh">数据只在这台 iPhone 上</h2>
+        <h2 data-lang="en">On this iPhone only</h2>
+        <p data-lang="zh">没有账号，没有云同步，没有社交。日子不收集个人数据，也不需要相机或相册。卸载 App，这些日子会一起删除。</p>
+        <p data-lang="en">No account, no cloud sync, no social graph. Days does not collect personal data, and does not need the camera or photo library. Delete the app, and the days go with it.</p>
+      </div>
+      <div>
+        <p class="price" data-lang="zh">Pro ¥6 买断</p>
+        <p class="price" data-lang="en">Pro, one time</p>
+        <p class="price-note" data-lang="zh">解锁全部场景主题，不是订阅。付款由 Apple 处理。</p>
+        <p class="price-note" data-lang="en">Unlock every scene theme. Not a subscription. Apple handles payment. The price is local in the App Store.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap get" id="get">
+    <h2 data-lang="zh">iPhone 上的日子</h2>
+    <h2 data-lang="en">Days on iPhone</h2>
+    <p data-lang="zh">需要 iOS 17 或更新系统。主屏幕小号、中号、大号，以及锁屏圆形、方形、一行，都可以放日子。小组件默认跟着最近的一条，也可以指定某一条。</p>
+    <p data-lang="en">Requires iOS 17 or later. Small, medium, and large Home Screen widgets, plus circular, rectangular, and inline Lock Screen widgets, all read the same count. A widget can follow the nearest day, or pin one you choose.</p>
+    <div class="cta-row follow">
+      <a class="btn" data-store href="#get">
+        <span data-lang="zh">即将上架 App Store</span>
+        <span data-lang="en">Coming to the App Store</span>
+      </a>
+      <a class="btn btn-ghost" href="mailto:weizhichao6688@gmail.com">
+        <span data-lang="zh">写信给开发者</span>
+        <span data-lang="en">Email the developer</span>
+      </a>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <nav>
+<footer class="site-footer wrap">
+  <nav aria-label="Footer">
     <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
     <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
     <a href="mailto:weizhichao6688@gmail.com">weizhichao6688@gmail.com</a>
   </nav>
   <p>© 2026 日子 / Days</p>
 </footer>
-<script src="site.js"></script>
+<script src="site.js" defer></script>
 </body>
 </html>
