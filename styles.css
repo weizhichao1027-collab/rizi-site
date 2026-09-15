@@ -33,14 +33,14 @@
 @layer tokens {
   :root {
     color-scheme: light;
-    --ink: #1b2430;
-    --ink-soft: #4a5563;
-    --canvas: #e8ebf1;
-    --surface: #f4f6f9;
-    --line: rgb(27 36 48 / 0.1);
-    --accent: #b42318;
-    --accent-deep: #8c1b13;
-    --focus: #b42318;
+    --ink: #1a1917;
+    --ink-soft: #5c5854;
+    --canvas: #ffffff;
+    --surface: #f3f2f0;
+    --line: rgb(26 25 23 / 0.1);
+    --accent: #c43b2e;
+    --accent-deep: #9a2d23;
+    --focus: #c43b2e;
     --radius: 12px;
     --max: 1120px;
     --measure: 62ch;
@@ -68,45 +68,45 @@
   }
 
   [data-theme="exam-sprint"] {
-    --leaf-ink: #2c1810;
-    --leaf-paper: #f3e6c8;
-    --leaf-accent: #b42318;
-    --leaf-wash: #e8d4a8;
+    --leaf-ink: #1f1412;
+    --leaf-paper: #fdeeea;
+    --leaf-accent: #c43b2e;
+    --leaf-wash: #f6d7d2;
   }
 
   [data-theme="birthday-party"] {
-    --leaf-ink: #3d2410;
-    --leaf-paper: #fff4e0;
-    --leaf-accent: #e07a3d;
-    --leaf-wash: #f5d5a6;
+    --leaf-ink: #1f1610;
+    --leaf-paper: #fff1e4;
+    --leaf-accent: #d86a2a;
+    --leaf-wash: #f6e0c8;
   }
 
   [data-theme="love-memorial"] {
-    --leaf-ink: #4a1c2a;
-    --leaf-paper: #fbe8ee;
-    --leaf-accent: #c43b5a;
-    --leaf-wash: #f4c9d4;
+    --leaf-ink: #1f1216;
+    --leaf-paper: #fdeef2;
+    --leaf-accent: #c4456a;
+    --leaf-wash: #f4d5de;
   }
 
   [data-theme="travel-depart"] {
-    --leaf-ink: #16353f;
-    --leaf-paper: #e7f3f3;
-    --leaf-accent: #2a8a8a;
-    --leaf-wash: #c5e4e2;
+    --leaf-ink: #12201f;
+    --leaf-paper: #e8f6f4;
+    --leaf-accent: #2a8b84;
+    --leaf-wash: #cde8e5;
   }
 
   [data-theme="job-countdown"] {
-    --leaf-ink: #e8e4dc;
-    --leaf-paper: #1b2433;
-    --leaf-accent: #c4a46a;
-    --leaf-wash: #2a3548;
+    --leaf-ink: #1a1c20;
+    --leaf-paper: #f0f2f5;
+    --leaf-accent: #9a7b3c;
+    --leaf-wash: #e2e5ea;
   }
 
   [data-theme="graduation"] {
-    --leaf-ink: #1b2a4a;
-    --leaf-paper: #eaf0f8;
-    --leaf-accent: #2f5da8;
-    --leaf-wash: #c9d6ea;
+    --leaf-ink: #121826;
+    --leaf-paper: #eaf0fa;
+    --leaf-accent: #2f5fa8;
+    --leaf-wash: #d4dfef;
   }
 }
 
@@ -209,7 +209,7 @@
     justify-content: space-between;
     gap: var(--space-4);
     padding: var(--space-3) clamp(16px, 4vw, 40px);
-    background: rgb(232 235 241 / 0.88);
+    background: rgb(255 255 255 / 0.88);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line);
   }
@@ -428,7 +428,7 @@
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    color: var(--leaf-ink);
+    color: var(--leaf-accent, var(--leaf-ink));
   }
 
   .leaf-name,
@@ -695,8 +695,8 @@
   .ink-band {
     margin: var(--space-8) 0 0;
     padding: var(--space-8) 0;
-    background: #1b2430;
-    color: #e8e4dc;
+    background: #fdeeea;
+    color: var(--ink);
   }
 
   .ink-band .wrap {
@@ -708,13 +708,13 @@
 
   .ink-band h2 {
     margin: 0 0 var(--space-4);
-    color: #e8e4dc;
+    color: var(--ink);
   }
 
   .ink-band p {
     margin: 0;
     max-width: 32em;
-    color: #c8c2b8;
+    color: var(--ink-soft);
   }
 
   .ink-band .price {
@@ -722,12 +722,12 @@
     font-size: clamp(2.2rem, 4vw, 3.2rem);
     letter-spacing: -0.03em;
     line-height: 1.1;
-    color: #e8e4dc;
+    color: var(--accent);
   }
 
   .ink-band .price-note {
     margin-top: var(--space-3);
-    color: #c8c2b8;
+    color: var(--ink-soft);
   }
 
   .get {
@@ -897,8 +897,8 @@
     }
 
     body {
-      background: #f4f6f9;
-      color: #1b2430;
+      background: #ffffff;
+      color: #1a1917;
     }
 
     .doc-layout {
