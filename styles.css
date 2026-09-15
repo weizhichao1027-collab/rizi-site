@@ -225,3 +225,63 @@ a:hover { text-decoration: underline; }
   padding: 20px;
   margin-top: 8px;
 }
+
+/* Preview section */
+.preview {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 8px 20px 64px;
+  text-align: center;
+}
+.preview h2 {
+  margin: 0 0 24px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 560px) {
+  .preview-grid { grid-template-columns: 1fr; }
+}
+.preview-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.preview-mock {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 28px 16px 22px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.preview-label {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.preview-days {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--coral);
+}
+.preview-days.big {
+  font-size: 1.45rem;
+}
+.preview-name {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
