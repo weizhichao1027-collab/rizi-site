@@ -20,170 +20,213 @@
 <link rel="canonical" href="https://weizhichao1027-collab.github.io/rizi-site/privacy.html"/>
 <link rel="alternate" hreflang="zh-Hans" href="https://weizhichao1027-collab.github.io/rizi-site/privacy.html"/>
 <link rel="alternate" hreflang="en" href="https://weizhichao1027-collab.github.io/rizi-site/privacy.html?lang=en"/>
+<link rel="alternate" hreflang="x-default" href="https://weizhichao1027-collab.github.io/rizi-site/privacy.html"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
 <script>
 (function () {
   try {
-    var q = new URLSearchParams(location.search).get("lang");
-    var s = localStorage.getItem("rizi-lang");
+    var q = new URLSearchParams(location.search).get("lang") || "";
+    var s = "";
+    try { s = localStorage.getItem("rizi-lang") || ""; } catch (e) {}
     var n = (navigator.language || "").toLowerCase();
-    var en = q === "en" || (!q && (s === "en" || (!s && n.indexOf("en") === 0)));
-    if (q === "zh-Hans") en = false;
-    if (en) document.documentElement.lang = "en";
-    var title = document.documentElement.getAttribute(en ? "data-title-en" : "data-title-zh");
-    if (title) document.title = title;
+    var raw = (q || s || n).replace(/_/g, "-").toLowerCase();
+    var lang = "zh-Hans";
+    if (raw === "en" || raw.indexOf("en-") === 0) lang = "en";
+    else if (raw === "zh-hant" || raw === "zh-tw" || raw === "zh-hk" || raw === "zh-mo") lang = "zh-Hant";
+    else if (raw.indexOf("ja") === 0) lang = "ja";
+    else if (raw.indexOf("ko") === 0) lang = "ko";
+    else if (raw.indexOf("es") === 0) lang = "es";
+    else if (raw.indexOf("fr") === 0) lang = "fr";
+    else if (raw.indexOf("de") === 0) lang = "de";
+    else if (raw.indexOf("pt") === 0) lang = "pt-BR";
+    else if (raw.indexOf("ru") === 0) lang = "ru";
+    else if (raw.indexOf("ar") === 0) lang = "ar";
+    else if (raw.indexOf("hi") === 0) lang = "hi";
+    else if (raw === "id" || raw === "in" || raw.indexOf("id-") === 0) lang = "id";
+    document.documentElement.lang = lang;
+    if (lang === "ar") document.documentElement.dir = "rtl";
+    if (lang === "en") {
+      var title = document.documentElement.getAttribute("data-title-en");
+      if (title) document.title = title;
+    }
   } catch (e) {}
 })();
 </script>
 </head>
-<body>
+<body data-title-key="privacyTitle" data-desc-key="privacyDesc">
 <a class="skip" href="#main">
-  <span data-lang="zh">跳到正文</span>
+  <span data-i18n="skip" data-lang="zh">跳到正文</span>
   <span data-lang="en">Skip to content</span>
 </a>
 <header class="topbar">
   <a class="wordmark" href="index.html">日子 <span class="wordmark-en">Days</span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-    <span data-lang="zh">菜单</span>
+    <span data-i18n="menu" data-lang="zh">菜单</span>
     <span data-lang="en">Menu</span>
   </button>
   <nav class="nav-links" id="site-nav" aria-label="Primary">
-    <a href="index.html"><span data-lang="zh">官网</span><span data-lang="en">Home</span></a>
-    <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
-    <a href="privacy.html" aria-current="page"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
-    <div class="lang-switch" role="group" aria-label="Language">
-      <button type="button" data-lang-switch="zh-Hans" aria-pressed="true">中</button>
-      <button type="button" data-lang-switch="en" aria-pressed="false">EN</button>
-    </div>
+    <a href="index.html"><span data-i18n="navHome" data-lang="zh">官网</span><span data-lang="en">Home</span></a>
+    <a href="support.html"><span data-i18n="navSupport" data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
+    <a href="privacy.html" aria-current="page"><span data-i18n="navPrivacy" data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
+    <label class="lang-label">
+      <span class="visually-hidden" data-i18n="language">语言</span>
+      <select data-lang-select autocomplete="off"></select>
+    </label>
   </nav>
 </header>
 
 <main id="main" class="wrap">
   <header class="doc-hero">
-    <h1 data-lang="zh">隐私政策</h1>
+    <h1 data-i18n="privacyH1" data-lang="zh">隐私政策</h1>
     <h1 data-lang="en">Privacy policy</h1>
-    <p class="lede" data-lang="zh">日子在你的设备上运行，无需注册账号。我们不收集、不出售、不共享个人数据。</p>
+    <p class="lede" data-i18n="privacyLede" data-lang="zh">日子在你的设备上运行，无需注册账号。我们不收集、不出售、不共享个人数据。</p>
     <p class="lede" data-lang="en">Days runs on your device and does not require an account. We do not collect, sell, or share personal data.</p>
-    <p class="meta" data-lang="zh">最后更新: 2026年9月15日</p>
-    <p class="meta" data-lang="en">Last updated: 15 September 2026</p>
+    <p class="meta" data-i18n="privacyUpdated" data-lang="zh">最后更新: 2026年9月16日</p>
+    <p class="meta" data-lang="en">Last updated: 16 September 2026</p>
   </header>
 
   <dl class="facts">
     <div>
-      <dt data-lang="zh">个人数据</dt>
+      <dt data-i18n="factPersonal" data-lang="zh">个人数据</dt>
       <dt data-lang="en">Personal data</dt>
-      <dd data-lang="zh">不收集</dd>
+      <dd data-i18n="factPersonalV" data-lang="zh">不收集</dd>
       <dd data-lang="en">Not collected</dd>
     </div>
     <div>
-      <dt data-lang="zh">账号</dt>
+      <dt data-i18n="factAccount" data-lang="zh">账号</dt>
       <dt data-lang="en">Account</dt>
-      <dd data-lang="zh">不需要</dd>
+      <dd data-i18n="factAccountV" data-lang="zh">不需要</dd>
       <dd data-lang="en">Not required</dd>
     </div>
     <div>
-      <dt data-lang="zh">追踪</dt>
+      <dt data-i18n="factTrack" data-lang="zh">追踪</dt>
       <dt data-lang="en">Tracking</dt>
-      <dd data-lang="zh">无</dd>
+      <dd data-i18n="factTrackV" data-lang="zh">无</dd>
       <dd data-lang="en">None</dd>
     </div>
     <div>
-      <dt data-lang="zh">保存位置</dt>
+      <dt data-i18n="factStorage" data-lang="zh">保存位置</dt>
       <dt data-lang="en">Storage</dt>
-      <dd data-lang="zh">仅本机</dd>
+      <dd data-i18n="factStorageV" data-lang="zh">仅本机</dd>
       <dd data-lang="en">On device</dd>
     </div>
   </dl>
 
   <div class="doc-layout">
     <nav class="toc" aria-label="Sections">
-      <a href="#collect"><span data-lang="zh">收集哪些数据</span><span data-lang="en">Data we collect</span></a>
-      <a href="#local"><span data-lang="zh">本机内容</span><span data-lang="en">On your device</span></a>
-      <a href="#permissions"><span data-lang="zh">权限</span><span data-lang="en">Permissions</span></a>
-      <a href="#purchases"><span data-lang="zh">购买</span><span data-lang="en">Purchases</span></a>
-      <a href="#children"><span data-lang="zh">儿童</span><span data-lang="en">Children</span></a>
-      <a href="#third"><span data-lang="zh">第三方</span><span data-lang="en">Third parties</span></a>
-      <a href="#site"><span data-lang="zh">本网站</span><span data-lang="en">This website</span></a>
-      <a href="#changes"><span data-lang="zh">政策变更</span><span data-lang="en">Changes</span></a>
-      <a href="#contact"><span data-lang="zh">联系</span><span data-lang="en">Contact</span></a>
+      <a href="#collect"><span data-i18n="tocCollect" data-lang="zh">收集哪些数据</span><span data-lang="en">Data we collect</span></a>
+      <a href="#local"><span data-i18n="tocLocal" data-lang="zh">本机内容</span><span data-lang="en">On your device</span></a>
+      <a href="#backup"><span data-i18n="tocBackup" data-lang="zh">本机备份</span><span data-lang="en">Local backups</span></a>
+      <a href="#permissions"><span data-i18n="tocPermissions" data-lang="zh">权限</span><span data-lang="en">Permissions</span></a>
+      <a href="#purchases"><span data-i18n="tocPurchases" data-lang="zh">购买</span><span data-lang="en">Purchases</span></a>
+      <a href="#retention"><span data-i18n="tocRetention" data-lang="zh">保存多久</span><span data-lang="en">Retention</span></a>
+      <a href="#children"><span data-i18n="tocChildren" data-lang="zh">儿童</span><span data-lang="en">Children</span></a>
+      <a href="#third"><span data-i18n="tocThird" data-lang="zh">第三方</span><span data-lang="en">Third parties</span></a>
+      <a href="#site"><span data-i18n="tocSite" data-lang="zh">本网站</span><span data-lang="en">This website</span></a>
+      <a href="#region"><span data-i18n="tocRegion" data-lang="zh">地区说明</span><span data-lang="en">Region notes</span></a>
+      <a href="#changes"><span data-i18n="tocChanges" data-lang="zh">政策变更</span><span data-lang="en">Changes</span></a>
+      <a href="#contact"><span data-i18n="tocContact" data-lang="zh">联系</span><span data-lang="en">Contact</span></a>
     </nav>
 
     <div>
       <article class="article" id="collect">
-        <h2 data-lang="zh">我们收集哪些数据</h2>
+        <h2 data-i18n="pCollectH" data-lang="zh">我们收集哪些数据</h2>
         <h2 data-lang="en">Data we collect</h2>
-        <p data-lang="zh">我们不收集个人数据。App 不接入用于识别你身份的分析、广告或崩溃上报 SDK。</p>
-        <p data-lang="en">We do not collect personal data. The app does not include analytics, advertising, or crash-reporting SDKs that identify you.</p>
+        <p data-i18n="pCollect" data-lang="zh">我们不收集个人数据。App 不接入分析、广告、崩溃上报或人工智能接口，也不会读取广告标识符（IDFA），不弹出追踪许可。</p>
+        <p data-lang="en">We do not collect personal data. The app does not include analytics, advertising, crash-reporting, or AI APIs. It does not read the advertising identifier (IDFA) and does not show an App Tracking Transparency prompt.</p>
       </article>
 
       <article class="article" id="local">
-        <h2 data-lang="zh">仅保存在你设备上的内容</h2>
+        <h2 data-i18n="pLocalH" data-lang="zh">仅保存在你设备上的内容</h2>
         <h2 data-lang="en">Stored only on your device</h2>
         <ul data-lang="zh">
-          <li>你添加的日子（名称、日期）</li>
-          <li>主题与显示偏好</li>
-          <li>是否已解锁 Pro（通过 Apple 查询购买状态）</li>
+          <li data-i18n="pLocal1">你添加的日子：名称、日期、主题、创建时间和一条本地标识</li>
+          <li data-i18n="pLocal2">主题与显示偏好</li>
+          <li data-i18n="pLocal3">是否已解锁 Pro（先向 Apple 查询购买状态，再在本机记下结果，供小组件使用）</li>
+          <li data-i18n="pLocal4">本机快照：保存时留下的可用备份，以及文件损坏时的副本</li>
         </ul>
         <ul data-lang="en">
-          <li>Days you add (name and date)</li>
+          <li>Days you add: name, date, theme, created time, and a local identifier</li>
           <li>Theme and display preferences</li>
-          <li>Whether Pro is unlocked (queried from Apple)</li>
+          <li>Whether Pro is unlocked (queried from Apple, then cached on device for widgets)</li>
+          <li>Local snapshots: a usable copy saved with your library, and a copy kept if a file is damaged</li>
         </ul>
-        <p data-lang="zh">这些保存在设备本地（含小组件所用的 App Group）。卸载 App 后会删除。</p>
-        <p data-lang="en">This stays on device, including the App Group used by widgets, and is deleted when you delete the app.</p>
+        <p data-i18n="pLocalP" data-lang="zh">这些写在设备本地，包括小组件所用的 App Group 文件和同一组的 UserDefaults。最多保存 500 个日子。小组件只读取已经保存在这台设备上的日子。</p>
+        <p data-lang="en">This stays on device, including the App Group file and UserDefaults suite used by widgets. The library holds up to 500 days. Widgets only read days already saved on this device.</p>
+      </article>
+
+      <article class="article" id="backup">
+        <h2 data-i18n="pBackupH" data-lang="zh">本机备份，不是云同步</h2>
+        <h2 data-lang="en">Local backups, not cloud sync</h2>
+        <p data-i18n="pBackup" data-lang="zh">日子没有自己的云同步，也不使用 iCloud Drive 或 CloudKit。每次保存时，App 会在同一台设备上留下最多两份可用快照；文件损坏时也可能留下副本。设置里的「数据备份」可以恢复最近一份可读快照，并覆盖当前列表。这不是换机迁移。若你开启了系统备份（如 iCloud 备份或电脑备份），备份里可能包含日子名称与日期。</p>
+        <p data-lang="en">Days has no cloud sync of its own and does not use iCloud Drive or CloudKit. Each save can keep up to two readable snapshots on the same device. Damaged files may also leave a copy. Settings &gt; Data backup can restore the newest readable snapshot and replace the current list. That is not a move to a new phone. If you use system backups (such as iCloud Backup or a computer backup), those backups may include day names and dates.</p>
       </article>
 
       <article class="article" id="permissions">
-        <h2 data-lang="zh">权限</h2>
+        <h2 data-i18n="tocPermissions" data-lang="zh">权限</h2>
         <h2 data-lang="en">Permissions</h2>
-        <p data-lang="zh">日子不需要相机、相册、麦克风、定位、通讯录、系统日历或追踪权限。桌面与锁屏小组件仅读取本机已保存的日子数据。</p>
-        <p data-lang="en">Days does not need camera, photo library, microphone, location, contacts, system calendar, or tracking access. Home Screen and Lock Screen widgets only read days already saved on this device.</p>
+        <p data-i18n="pPerm" data-lang="zh">日子不请求、也不需要相机、相册、麦克风、定位、通讯录、系统日历、通知或追踪权限。Info.plist 里没有这些用途说明，因为 App 不会调用它们。桌面与锁屏小组件只读本机已保存的日子。</p>
+        <p data-lang="en">Days does not request camera, photo library, microphone, location, contacts, system calendar, notifications, or tracking access. Info.plist has no usage strings for those APIs because the app does not call them. Home Screen and Lock Screen widgets only read days already saved on this device.</p>
+        <p data-i18n="pApi" data-lang="zh">为了在本机读写日子列表、和小组件共享数据、以及留下本地快照，App 会使用 UserDefaults（Privacy Nutrition 理由 CA92.1），并读取文件时间戳（理由 C617.1）。这些访问只发生在你的设备上，不会用来追踪你。</p>
+        <p data-lang="en">To read and write the library on device, share it with widgets, and keep local snapshots, the app uses UserDefaults (Privacy Nutrition reason CA92.1) and file timestamps (reason C617.1). These calls stay on your device and are not used to track you.</p>
       </article>
 
       <article class="article" id="purchases">
-        <h2 data-lang="zh">购买</h2>
+        <h2 data-i18n="pBuyH" data-lang="zh">购买</h2>
         <h2 data-lang="en">Purchases</h2>
-        <p data-lang="zh">可选的 Pro 解锁由 Apple App 内购买处理。付款信息由 Apple 处理，我们收不到你的银行卡信息。我们仅从 Apple 获知该非消耗型商品是否已购买。Pro 为一次买断，不是订阅。</p>
-        <p data-lang="en">Optional Pro unlocks are handled by Apple In-App Purchase. Apple processes payment; we never receive your card details. We only learn from Apple whether the non-consumable product was purchased. Pro is a one-time unlock, not a subscription.</p>
+        <p data-i18n="pBuy" data-lang="zh">可选的 Pro 解锁由 Apple 的 App 内购买处理。商品 ID 为 com.rizi.pro.themes，类型为非消耗型买断，不是订阅，也没有订阅组。App Store 已开启家人共享，购买者可与家庭成员共享此买断。付款信息由 Apple 处理，我们收不到银行卡号。我们只从 Apple 获知该商品是否已购买、是否被退款或撤销。退款后 Pro 会收回。家庭批准购买可能显示为等待批准，这不是失败。</p>
+        <p data-lang="en">Optional Pro unlocks are handled by Apple In-App Purchase. Product ID com.rizi.pro.themes is a non-consumable, one-time unlock. It is not a subscription and there is no subscription group. Family Sharing is on, so the purchaser can share this one-time unlock with their family group. Apple processes payment; we never receive your card details. We only learn from Apple whether that product was purchased, refunded, or revoked. A refund locks Pro again. Ask to Buy may show as waiting for approval. That is not a failure.</p>
+      </article>
+
+      <article class="article" id="retention">
+        <h2 data-i18n="pKeepH" data-lang="zh">保存多久</h2>
+        <h2 data-lang="en">How long we keep data</h2>
+        <p data-i18n="pKeep" data-lang="zh">日子数据一直留在这台设备上，直到你删除某条日子、在设置里用备份覆盖列表，或卸载 App。卸载后本地文件和快照会一起删除。我们没有服务器副本，因此无法替你远程删除。系统备份里的副本，按 Apple 的备份与设备管理处理。</p>
+        <p data-lang="en">Day data stays on this device until you delete a day, restore a local backup over the current list, or delete the app. Deleting the app removes the local files and snapshots. We have no server copy, so we cannot delete it remotely. Copies inside system backups follow Apple’s backup and device controls.</p>
       </article>
 
       <article class="article" id="children">
-        <h2 data-lang="zh">儿童</h2>
+        <h2 data-i18n="pChildH" data-lang="zh">儿童</h2>
         <h2 data-lang="en">Children</h2>
-        <p data-lang="zh">App 分级为 4+。我们不以儿童为对象收集数据，也不故意收集任何人的个人数据。</p>
-        <p data-lang="en">The app is rated 4+. We do not target children and do not knowingly collect anyone’s personal data.</p>
+        <p data-i18n="pChild" data-lang="zh">App 分级为 4+。我们不以儿童为对象收集数据，也不故意收集 13 岁以下（或你所在地区规定的更高年龄）任何人的个人数据。因为我们不收集个人数据，也没有需要监护人同意的在线账户。</p>
+        <p data-lang="en">The app is rated 4+. We do not target children and do not knowingly collect personal data from anyone under 13, or the higher age set by your region. Because we do not collect personal data, there is no online account that needs guardian consent.</p>
       </article>
 
       <article class="article" id="third">
-        <h2 data-lang="zh">第三方</h2>
+        <h2 data-i18n="pThirdH" data-lang="zh">第三方</h2>
         <h2 data-lang="en">Third parties</h2>
-        <p data-lang="zh">除 Apple（App Store / StoreKit）外，App 不向第三方发送你的数据。</p>
-        <p data-lang="en">Except Apple (App Store / StoreKit), the app does not send your data to third parties.</p>
+        <p data-i18n="pThird" data-lang="zh">除 Apple（App Store / StoreKit）外，App 不向第三方发送你的日子数据。没有分析 SDK、广告 SDK、登录服务或人工智能接口。使用条款使用 Apple 标准最终用户许可协议。</p>
+        <p data-lang="en">Except Apple (App Store / StoreKit), the app does not send your day data to third parties. There is no analytics SDK, ad SDK, sign-in service, or AI API. Terms of Use are Apple’s standard EULA.</p>
+        <p><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" data-i18n="sEulaLink">Apple 标准使用条款</a></p>
       </article>
 
       <article class="article" id="site">
-        <h2 data-lang="zh">本网站</h2>
+        <h2 data-i18n="pSiteH" data-lang="zh">本网站</h2>
         <h2 data-lang="en">This website</h2>
-        <p data-lang="zh">本页说明的是「日子」iOS App。网站为静态页面，托管于 GitHub Pages；访问时托管方可能记录常规服务器日志。本站用 localStorage 记住你选择的语言（中 / EN），不用于追踪，可在浏览器中清除。</p>
-        <p data-lang="en">This policy covers the Days iOS app. The site is static and hosted on GitHub Pages; the host may keep ordinary server logs. The site stores your language choice (Chinese / EN) in localStorage. It is not used for tracking and can be cleared in the browser.</p>
+        <p data-i18n="pSite" data-lang="zh">本页说明的是「日子」iOS App。网站为静态页面，托管于 GitHub Pages；访问时托管方可能记录常规服务器日志（例如 IP 与浏览器）。本站用 localStorage 记住你选择的语言，不使用 Cookie，不加载分析或广告脚本，也不加载第三方字体。语言选择可在浏览器中清除。</p>
+        <p data-lang="en">This policy covers the Days iOS app. The site is static and hosted on GitHub Pages. The host may keep ordinary server logs, such as IP address and browser. The site stores your language choice in localStorage. It does not use cookies, analytics, ads, or third-party fonts. You can clear the language choice in the browser.</p>
+      </article>
+
+      <article class="article" id="region">
+        <h2 data-i18n="pRegionH" data-lang="zh">地区说明</h2>
+        <h2 data-lang="en">Region notes</h2>
+        <p data-i18n="pRegion" data-lang="zh">我们不把日子数据发送到自己的服务器，因此不存在由我们发起的跨境传输。Apple 处理购买时，适用 Apple 的隐私政策与所在地区的付款规则。欧洲经济区、英国或加州用户：我们不出售、不共享个人数据用于广告或跨应用追踪。如需行使访问或删除权，请先在 App 内删除日子或卸载 App，再写信到下方邮箱。我们无法提供服务器上的副本，因为没有。中国大陆用户：我们不收集个人信息，也不向境外传输你的日子内容。</p>
+        <p data-lang="en">We do not send day data to our own servers, so we do not start an international transfer of that content. When Apple processes a purchase, Apple’s privacy policy and local payment rules apply. EEA, UK, and California: we do not sell or share personal information for ads or cross-app tracking. To access or delete what is on the device, delete days in the app or delete the app, then email us. We cannot produce a server copy because there is none.</p>
       </article>
 
       <article class="article" id="changes">
-        <h2 data-lang="zh">政策变更</h2>
+        <h2 data-i18n="pChangeH" data-lang="zh">政策变更</h2>
         <h2 data-lang="en">Changes</h2>
-        <p data-lang="zh">若本政策变更，我们会更新上方日期，并在本页面发布新版本。</p>
+        <p data-i18n="pChange" data-lang="zh">若本政策变更，我们会更新上方日期，并在本页面发布新版本。</p>
         <p data-lang="en">If this policy changes, we will update the date above and publish the new version on this page.</p>
       </article>
 
       <section class="contact-band" id="contact">
-        <h2 data-lang="zh">联系</h2>
+        <h2 data-i18n="pContactH" data-lang="zh">联系</h2>
         <h2 data-lang="en">Contact</h2>
-        <p data-lang="zh">隐私相关问题请写信。日子 / Days 是 iOS 倒数日与纪念日工具。开发者: zhichao wei。</p>
-        <p data-lang="en">Write to us with privacy questions. Days is an iOS countdown and anniversary tool. Developer: zhichao wei.</p>
+        <p data-i18n="pContact" data-lang="zh">隐私相关问题请写信。日子 / Days 是 iOS 倒数日与纪念日工具。开发者: Zhichao Wei。运营者没有单独的公司服务器收集你的数据。</p>
+        <p data-lang="en">Write to us with privacy questions. Days is an iOS countdown and anniversary tool. Developer: Zhichao Wei. There is no separate company server that collects your data.</p>
         <p><a class="mail" href="mailto:weizhichao1027@gmail.com">weizhichao1027@gmail.com</a></p>
       </section>
     </div>
@@ -192,12 +235,13 @@
 
 <footer class="site-footer wrap">
   <nav aria-label="Footer">
-    <a href="index.html"><span data-lang="zh">官网</span><span data-lang="en">Home</span></a>
-    <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
+    <a href="index.html"><span data-i18n="navHome" data-lang="zh">官网</span><span data-lang="en">Home</span></a>
+    <a href="support.html"><span data-i18n="navSupport" data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
     <a href="mailto:weizhichao1027@gmail.com">weizhichao1027@gmail.com</a>
   </nav>
-  <p>© 2026 日子 / Days</p>
+  <p data-i18n="copyright">© 2026 日子 / Days</p>
 </footer>
+<script src="i18n.js"></script>
 <script src="site.js" defer></script>
 </body>
 </html>

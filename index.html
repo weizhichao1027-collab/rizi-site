@@ -22,9 +22,6 @@
 <link rel="alternate" hreflang="en" href="https://weizhichao1027-collab.github.io/rizi-site/?lang=en"/>
 <link rel="alternate" hreflang="x-default" href="https://weizhichao1027-collab.github.io/rizi-site/"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
 <script>
 (function () {
@@ -54,7 +51,7 @@
 }
 </script>
 </head>
-<body>
+<body data-title-key="homeTitle" data-desc-key="homeDesc">
 <a class="skip" href="#main">
   <span data-lang="zh">跳到正文</span>
   <span data-lang="en">Skip to content</span>
@@ -62,35 +59,35 @@
 <header class="topbar">
   <a class="wordmark" href="index.html">日子 <span class="wordmark-en">Days</span></a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-    <span data-lang="zh">菜单</span>
+    <span data-i18n="menu" data-lang="zh">菜单</span>
     <span data-lang="en">Menu</span>
   </button>
   <nav class="nav-links" id="site-nav" aria-label="Primary">
-    <a href="#counts"><span data-lang="zh">天数</span><span data-lang="en">Counts</span></a>
-    <a href="#themes"><span data-lang="zh">主题</span><span data-lang="en">Themes</span></a>
-    <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
-    <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
-    <div class="lang-switch" role="group" aria-label="Language">
-      <button type="button" data-lang-switch="zh-Hans" aria-pressed="true">中</button>
-      <button type="button" data-lang-switch="en" aria-pressed="false">EN</button>
-    </div>
+    <a href="#counts"><span data-i18n="navCounts" data-lang="zh">天数</span><span data-lang="en">Counts</span></a>
+    <a href="#themes"><span data-i18n="navThemes" data-lang="zh">主题</span><span data-lang="en">Themes</span></a>
+    <a href="support.html"><span data-i18n="navSupport" data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
+    <a href="privacy.html"><span data-i18n="navPrivacy" data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
+    <label class="lang-label">
+      <span class="visually-hidden">语言</span>
+      <select data-lang-select autocomplete="off"></select>
+    </label>
   </nav>
 </header>
 
 <main id="main">
   <section class="wrap hero">
     <div>
-      <h1 data-lang="zh">还剩几天</h1>
+      <h1 data-i18n="heroTitle" data-lang="zh">还剩几天</h1>
       <h1 data-lang="en">Days left</h1>
-      <p class="lede" data-lang="zh">给考试、恋爱、旅行、生日做倒数。写下名称，选一个日期。列表、详情和小组件用同一套天数。</p>
+      <p class="lede" data-i18n="heroLede" data-lang="zh">给考试、恋爱、旅行、生日做倒数。写下名称，选一个日期。列表、详情和小组件用同一套天数。</p>
       <p class="lede" data-lang="en">Count down to exams, anniversaries, trips, and birthdays. Name plus date is enough. The list, detail view, and widgets share one count.</p>
       <div class="cta-row">
         <a class="btn" data-store href="#get">
-          <span data-lang="zh">即将上架 App Store</span>
+          <span data-i18n="comingStore" data-lang="zh">即将上架 App Store</span>
           <span data-lang="en">Coming to the App Store</span>
         </a>
         <a class="btn btn-ghost" href="#themes">
-          <span data-lang="zh">先看主题</span>
+          <span data-i18n="browseThemes" data-lang="zh">先看主题</span>
           <span data-lang="en">Browse themes</span>
         </a>
       </div>
@@ -201,8 +198,8 @@
       </button>
       </div>
     </div>
-    <p class="theme-note" data-lang="zh">点卡片只预览，点「使用」才写入。考试冲刺、生日派对免费；恋爱、旅行、入职、毕业需解锁 Pro。</p>
-    <p class="theme-note" data-lang="en">Tap a card to preview. Tap Use to apply it. Exam Sprint and Birthday Party are free. Love, travel, work, and graduation need Pro.</p>
+    <p class="theme-note" data-i18n="themeNote" data-lang="zh">点卡片只预览，点「使用」才写入。朱砂赤色、琥珀橙色免费；胭脂粉色、青瓷绿色、秋茶金色、群青蓝色需解锁 Pro。</p>
+    <p class="theme-note" data-lang="en">Tap a card to preview. Tap Use to apply it. Cinnabar Red and Amber Orange are free. Rouge Pink, Celadon Green, Tea Gold, and Ultramarine need Pro.</p>
   </section>
 
   <section class="wrap section" id="add">
@@ -234,32 +231,32 @@
   <section class="ink-band" id="local">
     <div class="wrap">
       <div>
-        <h2 data-lang="zh">数据只在这台 iPhone 上</h2>
+        <h2 data-i18n="localTitle" data-lang="zh">数据只在这台 iPhone 上</h2>
         <h2 data-lang="en">On this iPhone only</h2>
-        <p data-lang="zh">没有账号，没有云同步，没有社交。日子不收集个人数据，也不需要相机或相册。卸载 App，这些日子会一起删除。</p>
-        <p data-lang="en">No account, no cloud sync, no social graph. Days does not collect personal data, and does not need the camera or photo library. Delete the app, and the days go with it.</p>
+        <p data-i18n="localBody" data-lang="zh">没有账号，没有云同步，没有社交。日子不收集个人数据，也不需要相机、相册或系统日历。卸载 App，这些日子会一起删除。</p>
+        <p data-lang="en">No account, no cloud sync, no social graph. Days does not collect personal data, and does not need the camera, photo library, or system calendar. Delete the app, and the days go with it.</p>
       </div>
       <div>
-        <p class="price" data-lang="zh">Pro ¥6 买断</p>
+        <p class="price" data-i18n="price" data-lang="zh">Pro 一次买断</p>
         <p class="price" data-lang="en">Pro, one time</p>
-        <p class="price-note" data-lang="zh">解锁全部场景主题，不是订阅。付款由 Apple 处理。</p>
-        <p class="price-note" data-lang="en">Unlock every scene theme. Not a subscription. Apple handles payment. The price is local in the App Store.</p>
+        <p class="price-note" data-i18n="priceNote" data-lang="zh">中文商店价为 ¥6。解锁全部颜色主题，不是订阅。付款由 Apple 处理。其他地区显示当地价格。</p>
+        <p class="price-note" data-lang="en">Unlock every color theme. Not a subscription. Apple handles payment. The price is local in the App Store.</p>
       </div>
     </div>
   </section>
 
   <section class="wrap get" id="get">
-    <h2 data-lang="zh">iPhone 上的日子</h2>
+    <h2 data-i18n="getTitle" data-lang="zh">iPhone 上的日子</h2>
     <h2 data-lang="en">Days on iPhone</h2>
-    <p data-lang="zh">需要 iOS 17 或更新系统。主屏幕小号、中号、大号，以及锁屏圆形、方形、一行，都可以放日子。小组件默认跟着最近的一条，也可以指定某一条。</p>
-    <p data-lang="en">Requires iOS 17 or later. Small, medium, and large Home Screen widgets, plus circular, rectangular, and inline Lock Screen widgets, all read the same count. A widget can follow the nearest day, or pin one you choose.</p>
+    <p data-i18n="getBody" data-lang="zh">需要 iOS 17 或更新系统。主屏幕小号、中号、大号，以及锁屏圆形、方形、一行，都可以放日子。小组件默认跟着最近的一条，也可以指定某一条。最多 500 个日子。</p>
+    <p data-lang="en">Requires iOS 17 or later. Small, medium, and large Home Screen widgets, plus circular, rectangular, and inline Lock Screen widgets, all read the same count. A widget can follow the nearest day, or pin one you choose. The library holds up to 500 days.</p>
     <div class="cta-row follow">
       <a class="btn" data-store href="#get">
-        <span data-lang="zh">即将上架 App Store</span>
+        <span data-i18n="comingStore" data-lang="zh">即将上架 App Store</span>
         <span data-lang="en">Coming to the App Store</span>
       </a>
       <a class="btn btn-ghost" href="mailto:weizhichao1027@gmail.com">
-        <span data-lang="zh">写信给开发者</span>
+        <span data-i18n="writeDev" data-lang="zh">写信给开发者</span>
         <span data-lang="en">Email the developer</span>
       </a>
     </div>
@@ -274,6 +271,7 @@
   </nav>
   <p>© 2026 日子 / Days</p>
 </footer>
+<script src="i18n.js"></script>
 <script src="site.js" defer></script>
 </body>
 </html>

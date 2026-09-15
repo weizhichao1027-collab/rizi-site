@@ -9,9 +9,6 @@
 <meta name="theme-color" content="#FFFFFF"/>
 <title>日子: 没有这一页</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
 <script>
 (function () {
@@ -28,7 +25,7 @@
 })();
 </script>
 </head>
-<body>
+<body data-title-key="missingTitle" data-desc-key="missingLede">
 <a class="skip" href="#main">
   <span data-lang="zh">跳到正文</span>
   <span data-lang="en">Skip to content</span>
@@ -43,10 +40,10 @@
     <a href="index.html"><span data-lang="zh">官网</span><span data-lang="en">Home</span></a>
     <a href="support.html"><span data-lang="zh">技术支持</span><span data-lang="en">Support</span></a>
     <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy</span></a>
-    <div class="lang-switch" role="group" aria-label="Language">
-      <button type="button" data-lang-switch="zh-Hans" aria-pressed="true">中</button>
-      <button type="button" data-lang-switch="en" aria-pressed="false">EN</button>
-    </div>
+    <label class="lang-label">
+      <span class="visually-hidden">语言</span>
+      <select data-lang-select autocomplete="off"></select>
+    </label>
   </nav>
 </header>
 <main id="main" class="wrap hero">
@@ -70,6 +67,7 @@
 <footer class="site-footer wrap">
   <p>© 2026 日子 / Days</p>
 </footer>
+<script src="i18n.js"></script>
 <script src="site.js" defer></script>
 </body>
 </html>
